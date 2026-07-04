@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Model files (track the .pkl but ignore raw data)
+*.pkl
+!models/fraud_detection_model.pkl
+
+# Dataset (large file, not tracked)
+dataset/creditcard.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports
+reports/*.docx
+reports/*.pdf
+
+# Logs
+*.log

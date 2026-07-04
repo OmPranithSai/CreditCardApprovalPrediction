@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1A1A2E"/><stop offset="100%" style="stop-color:#0F0F23"/></linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1565C0"/><stop offset="100%" style="stop-color:#0D47A1"/></linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2E7D32"/><stop offset="100%" style="stop-color:#1B5E20"/></linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E53935"/><stop offset="100%" style="stop-color:#C62828"/></linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF8F00"/><stop offset="100%" style="stop-color:#E65100"/></linearGradient>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#42A5F5"/><stop offset="100%" style="stop-color:#1565C0"/></linearGradient>
+    <filter id="sh"><feDropShadow dx="2" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="680" fill="url(#bg)" rx="12"/>
+  <text x="450" y="40" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold">System Architecture Diagram</text>
+  <text x="450" y="60" text-anchor="middle" fill="#9fa8da" font-size="12">Credit Card Approval Prediction System</text>
+
+  <!-- Data flow - left column -->
+  <rect x="40" y="85" width="200" height="45" rx="8" fill="url(#g1)" filter="url(#sh)"/>
+  <text x="140" y="112" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">📊 Dataset (CSV)</text>
+
+  <line x1="140" y1="130" x2="140" y2="155" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="136,152 140,160 144,152" fill="#42A5F5"/>
+
+  <rect x="40" y="160" width="200" height="45" rx="8" fill="url(#g4)" filter="url(#sh)"/>
+  <text x="140" y="187" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">⚙️ Preprocessing</text>
+
+  <line x1="140" y1="205" x2="140" y2="230" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="136,227 140,235 144,227" fill="#42A5F5"/>
+
+  <rect x="40" y="235" width="200" height="45" rx="8" fill="url(#g5)" filter="url(#sh)"/>
+  <text x="140" y="262" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🧠 Feature Engineering</text>
+
+  <line x1="140" y1="280" x2="140" y2="305" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="136,302 140,310 144,302" fill="#42A5F5"/>
+
+  <rect x="40" y="310" width="200" height="45" rx="8" fill="url(#g2)" filter="url(#sh)"/>
+  <text x="140" y="337" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🤖 Model Training</text>
+
+  <line x1="140" y1="355" x2="140" y2="380" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="136,377 140,385 144,377" fill="#42A5F5"/>
+
+  <rect x="40" y="385" width="200" height="45" rx="8" fill="url(#g4)" filter="url(#sh)"/>
+  <text x="140" y="412" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">📈 Model Evaluation</text>
+
+  <line x1="140" y1="430" x2="140" y2="455" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="136,452 140,460 144,452" fill="#42A5F5"/>
+
+  <rect x="40" y="460" width="200" height="45" rx="8" fill="url(#g2)" filter="url(#sh)"/>
+  <text x="140" y="487" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🏆 Best Model Selection</text>
+
+  <!-- Arrow right to Flask -->
+  <line x1="240" y1="482" x2="350" y2="482" stroke="#42A5F5" stroke-width="2"/>
+  <line x1="350" y1="482" x2="350" y2="280" stroke="#42A5F5" stroke-width="2"/>
+  <line x1="350" y1="280" x2="380" y2="280" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="377,276 385,280 377,284" fill="#42A5F5"/>
+
+  <!-- Flask center -->
+  <rect x="380" y="240" width="260" height="85" rx="12" fill="url(#g1)" filter="url(#sh)"/>
+  <text x="510" y="270" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">🌐 Flask Web Application</text>
+  <text x="510" y="290" text-anchor="middle" fill="#e0e0e0" font-size="11">app.py - Routes &amp; Controllers</text>
+  <text x="510" y="308" text-anchor="middle" fill="#e0e0e0" font-size="11">/ (Home) | /predict | /result | /about | /performance</text>
+
+  <!-- Flask to Model -->
+  <line x1="510" y1="325" x2="510" y2="370" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="506,367 510,375 514,367" fill="#42A5F5"/>
+
+  <rect x="390" y="375" width="240" height="55" rx="10" fill="url(#g2)" filter="url(#sh)"/>
+  <text x="510" y="402" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">💾 Saved Model</text>
+  <text x="510" y="420" text-anchor="middle" fill="#e0e0e0" font-size="10">models/best_model.pkl</text>
+
+  <!-- Model to Output -->
+  <line x1="510" y1="430" x2="510" y2="470" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="506,467 510,475 514,467" fill="#42A5F5"/>
+
+  <rect x="350" y="475" width="320" height="55" rx="10" fill="url(#g3)" filter="url(#sh)"/>
+  <text x="510" y="502" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">📊 Prediction Result</text>
+  <text x="510" y="520" text-anchor="middle" fill="#e0e0e0" font-size="10">Approved / Rejected + Confidence Score</text>
+
+  <!-- User on right -->
+  <rect x="660" y="240" width="200" height="85" rx="12" fill="url(#g5)" filter="url(#sh)"/>
+  <text x="760" y="270" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">👤 User</text>
+  <text x="760" y="290" text-anchor="middle" fill="#e0e0e0" font-size="11">Browser Interface</text>
+  <text x="760" y="308" text-anchor="middle" fill="#e0e0e0" font-size="11">HTML / CSS / Bootstrap</text>
+
+  <!-- Flask <-> User -->
+  <line x1="640" y1="280" x2="655" y2="280" stroke="#42A5F5" stroke-width="2"/>
+  <polygon points="652,276 658,280 652,284" fill="#42A5F5"/>
+  <polygon points="643,276 637,280 643,284" fill="#42A5F5"/>
+  <text x="648" y="265" fill="#9fa8da" font-size="10">Request</text>
+  <text x="648" y="305" fill="#9fa8da" font-size="10">Response</text>
+
+  <!-- Legend -->
+  <rect x="660" y="400" width="200" height="130" rx="10" fill="#111535" stroke="#1e2450"/>
+  <text x="760" y="423" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">🎨 Legend</text>
+  <rect x="680" y="438" width="12" height="12" rx="3" fill="url(#g1)"/><text x="700" y="450" fill="#ccc" font-size="10">Application Layer</text>
+  <rect x="680" y="458" width="12" height="12" rx="3" fill="url(#g2)"/><text x="700" y="470" fill="#ccc" font-size="10">Model Layer</text>
+  <rect x="680" y="478" width="12" height="12" rx="3" fill="url(#g3)"/><text x="700" y="490" fill="#ccc" font-size="10">Output Layer</text>
+  <rect x="680" y="498" width="12" height="12" rx="3" fill="url(#g4)"/><text x="700" y="510" fill="#ccc" font-size="10">Processing Layer</text>
+
+  <text x="450" y="660" text-anchor="middle" fill="#555" font-size="11">Credit Card Approval Prediction System | 2026</text>
+</svg>

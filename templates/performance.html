@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance - Credit Card Approval</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fas fa-credit-card me-2"></i>Credit<span class="fw-light">Approval</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-info-circle me-1"></i>About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/predict"><i class="fas fa-robot me-1"></i>Predict</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/performance"><i class="fas fa-chart-bar me-1"></i>Performance</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="container text-center">
+    <h1><i class="fas fa-chart-bar me-2"></i>Model Performance</h1>
+    <p class="text-muted">Evaluation metrics for all trained classification models</p>
+  </div>
+</section>
+
+<section class="performance-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <div class="perf-card mb-4">
+          <div class="perf-card-header">
+            <i class="fas fa-trophy me-2"></i>Best Model: <strong>{{ best_model }}</strong>
+          </div>
+          <div class="perf-card-body">
+            <div class="table-responsive">
+              <table class="table table-hover perf-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1 Score</th>
+                    <th>ROC-AUC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for name, m in metrics.items() %}
+                  <tr class="{{ 'table-primary' if name == best_model else '' }}">
+                    <td><strong>{{ name }}</strong></td>
+                    <td>{{ m['Accuracy'] }}</td>
+                    <td>{{ m['Precision'] }}</td>
+                    <td>{{ m['Recall'] }}</td>
+                    <td>{{ m['F1 Score'] }}</td>
+                    <td>{{ m['ROC-AUC'] }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <i class="fas fa-chart-bar me-2"></i>Model Comparison
+              </div>
+              <div class="perf-card-body text-center">
+                <img src="{{ url_for('static', filename=graphs_dir + '/model_comparison.png') }}"
+                     alt="Model Comparison" class="img-fluid perf-img"
+                     onerror="this.parentElement.innerHTML='<p class=text-muted>Run train_model.py to generate graphs</p>'">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <i class="fas fa-chart-line me-2"></i>ROC Curves
+              </div>
+              <div class="perf-card-body text-center">
+                <img src="{{ url_for('static', filename=graphs_dir + '/roc_curves.png') }}"
+                     alt="ROC Curves" class="img-fluid perf-img"
+                     onerror="this.parentElement.innerHTML='<p class=text-muted>Run train_model.py to generate graphs</p>'">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <i class="fas fa-th me-2"></i>Confusion Matrices
+              </div>
+              <div class="perf-card-body text-center">
+                <img src="{{ url_for('static', filename=graphs_dir + '/confusion_matrices.png') }}"
+                     alt="Confusion Matrices" class="img-fluid perf-img"
+                     onerror="this.parentElement.innerHTML='<p class=text-muted>Run train_model.py to generate graphs</p>'">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="perf-card">
+              <div class="perf-card-header">
+                <i class="fas fa-heatmap me-2"></i>Correlation Heatmap
+              </div>
+              <div class="perf-card-body text-center">
+                <img src="{{ url_for('static', filename=graphs_dir + '/correlation_heatmap.png') }}"
+                     alt="Correlation Heatmap" class="img-fluid perf-img"
+                     onerror="this.parentElement.innerHTML='<p class=text-muted>Run train_model.py to generate graphs</p>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer py-4">
+  <div class="container text-center">
+    <p class="mb-0 text-muted">&copy; 2026 Credit Card Approval Prediction System</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
